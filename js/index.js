@@ -84,3 +84,12 @@ $(function() {
     }
   });
 });
+
+$(document).ready(function() {
+  $('#about-foot').click(function() {
+    console.log('click fired');
+    var $aboutContent = '<p>Today, Cantabile has grown to become a 20-member ensemble of auditioned vocalists gathered from the Skagit Valley area. The group performs Christmas and spring concerts of sacred and secular works. We enjoy performing classical music that has withstood the test of time, and experimenting with contemporary selections that challenge us and entertain our audiences. Our mission is to share our love of beautiful choral music with audiences throughout the Skagit Valley area and beyond.</p><p>Cantabile’s purpose each season is to enhance the community’s enjoyment and understanding of choral arts through communicating the beauty of music. The group has been honored to support Skagit Opera, Skagit Valley Chorale, Skagit Symphony, and other performing arts groups, through members’ active participation in their productions and concerts. We are pleased to be working in collaboration with the Anacortes Arts Foundation. We look forward to seeing you and your family at our inspiring concerts.</p><h3><a href="#contact">Click here</a> for audition information</h3>';
+    $('.about').append($aboutContent);
+    $('#about-foot').remove();
+  });
+});

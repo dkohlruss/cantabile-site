@@ -42,6 +42,11 @@ section {
   display: block;
 }
 
+#about-foot {
+  color: #E46645;
+  cursor: pointer;
+}
+
 .container {
   width: 100%;
   display: block;
