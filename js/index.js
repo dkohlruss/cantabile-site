@@ -31,28 +31,22 @@ window.fbAsyncInit = function() {
           var min = dateString.substring(14,16);
           var tz = dateString.substring(20,24);
           var ampm = 'AM';
+          var monthArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+          var month = monthArr[monthNum-1];
+          var placeName = results[i].place.name;
+          var comma = placeName.indexOf(',');
+          var venueName = placeName.substring(0,comma);
+          var address = placeName.substring(comma+2);
+          var description = results[i].description.substring(0,results[i].description.indexOf('\n'));
 
           if (hr > 12) {
             hr = hr - 12;
             ampm = 'PM';
           }
 
-          var monthArr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-          var month = monthArr[monthNum-1];
-
-          var placeName = results[i].place.name;
-          var comma = placeName.indexOf(',');
-          var venueName = placeName.substring(0,comma);
-          var address = placeName.substring(comma+2);
-
-          var description = results[i].description.substring(0,results[i].description.indexOf('\n'));
-
           var $title = '<h3 class="concert-title"><a href="https://www.facebook.com/events/' + results[i].id + '" target="_blank">' + results[i].name + '</a></h3>';
-          var $dateTimeLoc = '<span class="date-time-loc">' + month + ' ' + day + ', ' + year + '<br>' + venueName + '<br><a href="https://www.google.ca/maps/place/' + address + '" target="_blank">' + address + '</a></span>';
+          var $dateTimeLoc = '<span class="date-time-loc">' + month + ' ' + day + ', ' + year + ', ' + hr + ':' + min + ampm + '<br>' + venueName + '<br><a href="https://www.google.ca/maps/place/' + address + '" target="_blank">' + address + '</a></span>';
           var $desc = '<p class="concert-desc">' + description + '</p>';
-
-          console.log(month);
-          console.log(results[i]);
 
           $('.concerts').append($title).append($dateTimeLoc).append($desc);
         }
@@ -88,7 +82,7 @@ $(function() {
 $(document).ready(function() {
   $(document).on('click', '#about-foot', function() {
     console.log('click fired');
-    var $aboutContent = '<p>Today, Cantabile has grown to become a 20-member ensemble of auditioned vocalists gathered from the Skagit Valley area. The group performs Christmas and spring concerts of sacred and secular works. We enjoy performing classical music that has withstood the test of time, and experimenting with contemporary selections that challenge us and entertain our audiences. Our mission is to share our love of beautiful choral music with audiences throughout the Skagit Valley area and beyond.</p><p>Cantabile’s purpose each season is to enhance the community’s enjoyment and understanding of choral arts through communicating the beauty of music. The group has been honored to support Skagit Opera, Skagit Valley Chorale, Skagit Symphony, and other performing arts groups, through members’ active participation in their productions and concerts. We are pleased to be working in collaboration with the Anacortes Arts Foundation. We look forward to seeing you and your family at our inspiring concerts.</p><div id="dynamic-link"><h3><a href="#audition">Auditions</a> for audition information</h3></div>';
+    var $aboutContent = '';
     $('.about').append($aboutContent);
     $('#about-foot').remove();
   });
