@@ -24,10 +24,10 @@ window.fbAsyncInit = function() {
           var compare = (date < tomorrow); // Compares day before midnight tonight
 
           if (compare) {
-            break;
             if (i === 0) {
               $('.concerts').append('<h4>There are currently no scheduled concerts, please check back later</h4>');
             }
+            break;
           }
 
           var hr = dateString.substring(11,13);
