@@ -51,7 +51,7 @@ window.fbAsyncInit = function() {
 
           var $title = '<div class="event"><h3 class="concert-title"><a href="https://www.facebook.com/events/' + results[i].id + '" target="_blank">' + results[i].name + '</a></h3>';
           var $dateTimeLoc = '<div class="event-deets"><span class="date-time-loc">' + month + ' ' + day + ', ' + year + ', ' + hr + ':' + min + ampm + '<br>' + venueName + '<br><a href="https://www.google.ca/maps/place/' + address + '" target="_blank">' + address + '</a></span></div>';
-          var $desc = '<p class="concert-desc"><img class="event-img img-wrap" src="' + image + '">' + description + '</p></div>';
+          var $desc = '<p class="concert-desc"><a href="' + image + '" target="_blank"><img class="event-img img-wrap" src="' + image + '"></a>' + description + '</p></div>';
 
           var $agg = $title + $dateTimeLoc + $desc;
 
