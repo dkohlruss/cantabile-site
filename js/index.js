@@ -16,6 +16,7 @@ window.fbAsyncInit = function() {
         tomorrow.setDate(tomorrow.getDate() + 1);
 
         for (var i = 0; i < results.length; i++) {
+          console.log(results[i]);
           var dateString  = results[i].start_time;
           var year        = dateString.substring(0,4);
           var monthNum       = dateString.substring(5,7);
@@ -41,17 +42,20 @@ window.fbAsyncInit = function() {
           var venueName = placeName.substring(0,comma);
           var address = placeName.substring(comma+2);
           var description = results[i].description.substring(0,results[i].description.indexOf('\n'));
+          var image = results[i].cover.source;
 
           if (hr > 12) {
             hr = hr - 12;
             ampm = 'PM';
           }
 
-          var $title = '<h3 class="concert-title"><a href="https://www.facebook.com/events/' + results[i].id + '" target="_blank">' + results[i].name + '</a></h3>';
-          var $dateTimeLoc = '<span class="date-time-loc">' + month + ' ' + day + ', ' + year + ', ' + hr + ':' + min + ampm + '<br>' + venueName + '<br><a href="https://www.google.ca/maps/place/' + address + '" target="_blank">' + address + '</a></span>';
-          var $desc = '<p class="concert-desc">' + description + '</p>';
+          var $title = '<div class="event"><h3 class="concert-title"><a href="https://www.facebook.com/events/' + results[i].id + '" target="_blank">' + results[i].name + '</a></h3>';
+          var $dateTimeLoc = '<div class="event-deets"><span class="date-time-loc">' + month + ' ' + day + ', ' + year + ', ' + hr + ':' + min + ampm + '<br>' + venueName + '<br><a href="https://www.google.ca/maps/place/' + address + '" target="_blank">' + address + '</a></span></div>';
+          var $desc = '<p class="concert-desc"><img class="event-img img-wrap" src="' + image + '">' + description + '</p></div>';
 
-          $('.concerts').append($title).append($dateTimeLoc).append($desc);
+          var $agg = $title + $dateTimeLoc + $desc;
+
+          $('.concerts').append($agg);
         }
 
       }

@@ -140,6 +140,8 @@ section {
 
 .concert-desc {
   margin-bottom: 60px;
+  float: clear;
+  display: block;
 }
 
 .date-time-loc {
@@ -151,6 +153,21 @@ section {
   width: 100%;
   height: auto;
   max-height: 400px;
+}
+
+.event {
+  display: block;
+  float: left;
+}
+
+.event-deets {
+  display: inline-block;
+  float: none;
+}
+
+.event-img {
+  display: inline-block;
+  max-width: 150px;
 }
 
 @media screen and (max-width: 990px) {
