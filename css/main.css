@@ -167,6 +167,7 @@ section {
 .event-img {
   display: inline-block;
   max-width: 150px;
+  margin-top: 0;
 }
 
 @media screen and (max-width: 990px) {
