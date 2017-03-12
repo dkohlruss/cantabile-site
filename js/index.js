@@ -9,7 +9,7 @@ window.fbAsyncInit = function() {
     FB.api(
       '/131666423550255?access_token=1814523758802221|pBV7Mu5BZ8DhWWMfgWSjFxz7rT8',
       'GET',
-      {"fields":"events"},
+      {"fields":"events{description,end_time,name,place,start_time,id,cover}"},
       function(response) {
         var results = response.events.data;
         var tomorrow = new Date();
