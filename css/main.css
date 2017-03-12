@@ -139,8 +139,6 @@ section {
 }
 
 .concert-desc {
-  margin-bottom: 60px;
-  float: clear;
   display: block;
 }
 
@@ -158,6 +156,7 @@ section {
 .event {
   display: block;
   float: left;
+  margin-bottom: 60px;
 }
 
 .event-deets {
